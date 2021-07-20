@@ -3,20 +3,21 @@ package sorters;
 //добавить сдвигающиея границы итарации
 public class BubbleSorter implements Sorter {
     @Override
-    public void sort(int[] array){
+    public int[] sort(int[] array) {
         boolean needIteration = true;
-        while (needIteration){
+        while (needIteration) {
             needIteration = false;
             for (int i = 1; i < array.length; i++) {
-                if (array[i] < array[i-1]) {
-                    swap(array, i, i-1);
+                if (array[i] < array[i - 1]) {
+                    swap(array, i, i - 1);
                     needIteration = true;
                 }
             }
         }
+        return array;
     }
 
-    private void swap(int[] array, int indexOne, int indexTwo){
+    private void swap(int[] array, int indexOne, int indexTwo) {
         int swapped = array[indexOne];
         array[indexOne] = array[indexTwo];
         array[indexTwo] = swapped;
