@@ -5,14 +5,16 @@ public class BubbleSorter implements Sorter {
     @Override
     public int[] sort(int[] array) {
         boolean needIteration = true;
+        int counter = 0;
         while (needIteration) {
             needIteration = false;
-            for (int i = 1; i < array.length; i++) {
+            for (int i = 1; i < array.length-(counter); i++) {
                 if (array[i] < array[i - 1]) {
                     swap(array, i, i - 1);
                     needIteration = true;
                 }
             }
+            counter++;
         }
         return array;
     }
