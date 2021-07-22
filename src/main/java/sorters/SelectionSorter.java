@@ -1,5 +1,8 @@
 package sorters;
 
+/**
+ * Сортировка выбором
+ */
 public class SelectionSorter implements Sorter{
 
     @Override

@@ -1,5 +1,8 @@
 package sorters;
 
+/**
+ * Сортировка вставкой
+ */
 public class InsertionSorter implements Sorter {
     @Override
     public int[] sort(int[] array) {
@@ -7,16 +10,12 @@ public class InsertionSorter implements Sorter {
         for (int left = 1; left < array.length; left++) {
             int value = array[left];
             int i = left - 1;
-            for (; i >= 0; i--) {
-                if (value < array[i]) {
-                    array[i + 1] = array[i];
-                } else {
-                    break;
-                }
+            while (i >= 0 && value < array[i]) {
+                array[i + 1] = array[i];
+                i--;
             }
-            array[i+1] = value;
+            array[i + 1] = value;
         }
-
         return array;
     }
 }

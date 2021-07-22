@@ -1,6 +1,10 @@
 package sorters;
 
 //добавить сдвигающиея границы итарации
+
+/**
+ * Сортировка пузырьком
+ */
 public class BubbleSorter implements Sorter {
     @Override
     public int[] sort(int[] array) {

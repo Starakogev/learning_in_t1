@@ -9,13 +9,14 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SelectionSorterTest {
-
     Sorter sorter = new SelectionSorter();
+
+    int[] unsortedArray = ArrayValueGenerator.generateValues(100000);
+
+    int[] sortedArray = ArrayValueGenerator.sortGeneratedValues(unsortedArray);
+
     @Test
     void sort() {
-        int[] unsortedArray = ArrayValueGenerator.generateValues(10000);
-
-        int[] sortedArray = ArrayValueGenerator.sortGeneratedValues(unsortedArray);
 
         System.out.println(Arrays.toString(unsortedArray));
 

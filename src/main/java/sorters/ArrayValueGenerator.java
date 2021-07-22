@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Генератор тестовых значений
+ */
 public class ArrayValueGenerator {
     static Sorter sorter = new BubbleSorter();
 
@@ -17,11 +20,9 @@ public class ArrayValueGenerator {
     }
 
     public static int[] sortGeneratedValues(int[] values){
-        int[] array = new int[values.length];
-        for (int i = 0; i < values.length; i++) {
-            array[i] = values[i];
-        }
-        return sorter.sort(array);
+        int[] array = values.clone();
+        MergeSorter.mergeSort(array, 0, array.length - 1);
+        return array;
     }
 
 }

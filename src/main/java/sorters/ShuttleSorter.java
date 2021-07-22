@@ -1,5 +1,8 @@
 package sorters;
 
+/**
+ * Челночная сортировка
+ */
 public class ShuttleSorter implements Sorter {
     @Override
     public int[] sort(int[] array) {
