@@ -3,6 +3,7 @@ package sorters;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,18 +11,30 @@ import static org.junit.jupiter.api.Assertions.*;
 class InsertionSorterTest {
     Sorter sorter = new InsertionSorter();
 
+    int[] unsortedArray = ArrayValueGenerator.generateValues(100000);
+    int[] unsortedArray2 = ArrayValueGenerator.generateValues(500000);
+
+    int[] sortedArray = ArrayValueGenerator.sortGeneratedValues(unsortedArray);
+
     @Test
     void sort() {
-        int[] unsortedArray = ArrayValueGenerator.generateValues(10000);
 
-        int[] sortedArray = ArrayValueGenerator.sortGeneratedValues(unsortedArray);
-
-        System.out.println(Arrays.toString(unsortedArray));
+//        System.out.println(Arrays.toString(unsortedArray));
 
         sorter.sort(unsortedArray);
+        long startMillis = System.currentTimeMillis();
+        sorter.sort(unsortedArray);
+        long stopMillis = System.currentTimeMillis();
 
-        System.out.println(Arrays.toString(unsortedArray));
+        long startMillis2 = System.currentTimeMillis();
+        sorter.sort(unsortedArray2);
+        long stopMillis2 = System.currentTimeMillis();
 
-        Assertions.assertArrayEquals(sortedArray, unsortedArray);
+//        System.out.println(Arrays.toString(unsortedArray));
+
+        System.out.println(stopMillis - startMillis);
+        System.out.println(stopMillis2 - startMillis2);
+
+//        Assertions.assertArrayEquals(sortedArray, unsortedArray);
     }
 }

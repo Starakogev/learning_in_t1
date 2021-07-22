@@ -5,10 +5,11 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-class ShuttleSorterTest {
-    Sorter sorter = new ShuttleSorter();
+import static org.junit.jupiter.api.Assertions.*;
 
-    int[] unsortedArray = ArrayValueGenerator.generateValues(100000);
+class MergeSorterTest {
+
+    int[] unsortedArray = ArrayValueGenerator.generateValues(50);
 
     int[] sortedArray = ArrayValueGenerator.sortGeneratedValues(unsortedArray);
 
@@ -17,7 +18,7 @@ class ShuttleSorterTest {
 
         System.out.println(Arrays.toString(unsortedArray));
 
-        sorter.sort(unsortedArray);
+        MergeSorter.mergeSort(unsortedArray, 0, unsortedArray.length - 1);
 
         System.out.println(Arrays.toString(unsortedArray));
 

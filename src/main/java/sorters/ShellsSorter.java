@@ -1,5 +1,8 @@
 package sorters;
 
+/**
+ * Сортировка Шелла
+ */
 public class ShellsSorter implements Sorter {
     @Override
     public int[] sort(int[] array) {
@@ -16,7 +19,7 @@ public class ShellsSorter implements Sorter {
         }
         return array;
     }
-
+//    5 6 7 9 2 4
     private void swap(int[] array, int indexOne, int indexTwo) {
         int swapped = array[indexOne];
         array[indexOne] = array[indexTwo];
