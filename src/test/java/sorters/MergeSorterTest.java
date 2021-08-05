@@ -8,6 +8,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MergeSorterTest {
+    Sorter sorter = new MergeSorter();
 
     int[] unsortedArray = ArrayValueGenerator.generateValues(50);
 
@@ -18,7 +19,7 @@ class MergeSorterTest {
 
         System.out.println(Arrays.toString(unsortedArray));
 
-        MergeSorter.mergeSort(unsortedArray, 0, unsortedArray.length - 1);
+        sorter.sort(unsortedArray);
 
         System.out.println(Arrays.toString(unsortedArray));
 
