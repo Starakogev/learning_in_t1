@@ -3,10 +3,7 @@ package sorters;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class InsertionSorterTest {
     Sorter sorter = new InsertionSorter();
@@ -19,7 +16,7 @@ class InsertionSorterTest {
     @Test
     void sort() {
 
-//        System.out.println(Arrays.toString(unsortedArray));
+        System.out.println(Arrays.toString(unsortedArray));
 
         sorter.sort(unsortedArray);
         long startMillis = System.currentTimeMillis();
@@ -30,11 +27,11 @@ class InsertionSorterTest {
         sorter.sort(unsortedArray2);
         long stopMillis2 = System.currentTimeMillis();
 
-//        System.out.println(Arrays.toString(unsortedArray));
+        System.out.println(Arrays.toString(unsortedArray));
 
         System.out.println(stopMillis - startMillis);
         System.out.println(stopMillis2 - startMillis2);
 
-//        Assertions.assertArrayEquals(sortedArray, unsortedArray);
+        Assertions.assertArrayEquals(sortedArray, unsortedArray);
     }
 }

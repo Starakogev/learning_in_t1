@@ -5,16 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-class SelectionSorterTest {
-    Sorter sorter = new SelectionSorter();
+class QuickSorterTest {
 
-    int[] unsortedArray = ArrayValueGenerator.generateValues(100000);
+    Sorter sorter = new QuickSorter();
+
+    int[] unsortedArray = ArrayValueGenerator.generateValues(50);
 
     int[] sortedArray = ArrayValueGenerator.sortGeneratedValues(unsortedArray);
 
     @Test
     void sort() {
-
         System.out.println(Arrays.toString(unsortedArray));
 
         sorter.sort(unsortedArray);

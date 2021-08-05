@@ -1,14 +1,11 @@
 package sorters;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
  * Генератор тестовых значений
  */
 public class ArrayValueGenerator {
-    static Sorter sorter = new BubbleSorter();
 
     public static int[] generateValues(int quantity){
         int[] values = new int[quantity];
