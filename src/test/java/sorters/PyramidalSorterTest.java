@@ -6,11 +6,10 @@ import valueGenerators.ArrayValueGenerator;
 
 import java.util.Arrays;
 
-class QuickSorterTest {
+class PyramidalSorterTest {
+    Sorter sorter = new PyramidalSorter();
 
-    Sorter sorter = new QuickSorter();
-
-    int[] unsortedArray = ArrayValueGenerator.generateValues(50);
+    int[] unsortedArray = ArrayValueGenerator.generateValues(100);
 
     int[] sortedArray = ArrayValueGenerator.sortGeneratedValues(unsortedArray);
 

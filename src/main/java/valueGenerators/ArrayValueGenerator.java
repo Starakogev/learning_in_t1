@@ -1,4 +1,6 @@
-package sorters;
+package valueGenerators;
+
+import sorters.MergeSorter;
 
 import java.util.Random;
 
