@@ -2,27 +2,29 @@ package searchers;
 
 public class BinarySearcher implements Searcher {
     @Override
-    public void search(int[] array, int firstIndex, int lastIndex, int searchedElement) {
+    public int search(int[] array, int searchedElement) {
+        int firstIndex = 0;
+        int lastIndex = array.length - 1;
         int searchPosition;
         int operationsCount = 1;
 
-        searchPosition = (firstIndex + lastIndex) / 2;
-
-        while ((array[searchPosition] != searchedElement) && (firstIndex <= lastIndex)) {
+        while (firstIndex <= lastIndex) {
             operationsCount++;
-            if (array[searchPosition] > searchedElement) {
-                lastIndex = searchPosition - 1;
-            } else {
-                firstIndex = searchPosition + 1;
-            }
             searchPosition = (firstIndex + lastIndex) / 2;
+            if (searchedElement < array[searchPosition]) {
+                lastIndex = searchPosition - 1;
+            } else if (searchedElement > array[searchPosition]) {
+                firstIndex = searchPosition + 1;
+            } else if (searchedElement == array[searchPosition]) {
+                System.out.println(searchedElement + " is " + ++searchPosition + " element of array");
+                System.out.println("It was needed " + operationsCount + " operations");
+                return searchedElement;
+            } else {
+                break;
+            }
         }
-        if (firstIndex <= lastIndex) {
-            System.out.println(searchedElement + " is " + ++searchPosition + " element of array");
-            System.out.println("It was needed " + operationsCount + " operations");
-        } else {
-            System.out.println("Element not fount. It was needed " + operationsCount + " operations");
-        }
+        System.out.println("Element not fount. It was needed " + operationsCount + " operations");
+        return 0;
     }
 }
 
