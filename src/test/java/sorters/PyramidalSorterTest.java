@@ -9,12 +9,11 @@ import java.util.Arrays;
 class PyramidalSorterTest {
     Sorter sorter = new PyramidalSorter();
 
-    int[] unsortedArray = ArrayValueGenerator.generateValues(100);
-
-    int[] sortedArray = ArrayValueGenerator.sortGeneratedValues(unsortedArray);
-
     @Test
     void sort() {
+        int[] unsortedArray = {3, 5, 4, 8, 2, 3, 1};
+        int[] sortedArray = ArrayValueGenerator.sortGeneratedValues(unsortedArray);
+
         System.out.println(Arrays.toString(unsortedArray));
 
         sorter.sort(unsortedArray);

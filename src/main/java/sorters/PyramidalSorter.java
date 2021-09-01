@@ -23,24 +23,24 @@ public class PyramidalSorter implements Sorter {
         return array;
     }
 
-    public static void pyramidCreation(int[] array, int length, int startIndexing) {
-        int leftChild = 2 * startIndexing + 1;
-        int rightChild = 2 * startIndexing + 2;
-        int largest = startIndexing;
+    public void pyramidCreation(int[] array, int length, int startIndexing) {
+        int leftChildIndex = 2 * startIndexing + 1;
+        int rightChildIndex = 2 * startIndexing + 2;
+        int largestIndex = startIndexing;
 
-        if (leftChild < length && array[leftChild] > array[largest]) {
-            largest = leftChild;
+        if (leftChildIndex < length && array[leftChildIndex] > array[largestIndex]) {
+            largestIndex = leftChildIndex;
         }
 
-        if (rightChild < length && array[rightChild] > array[largest]) {
-            largest = rightChild;
+        if (rightChildIndex < length && array[rightChildIndex] > array[largestIndex]) {
+            largestIndex = rightChildIndex;
         }
 
-        if (largest != startIndexing) {
+        if (largestIndex != startIndexing) {
             int temp = array[startIndexing];
-            array[startIndexing] = array[largest];
-            array[largest] = temp;
-            pyramidCreation(array, length, largest);
+            array[startIndexing] = array[largestIndex];
+            array[largestIndex] = temp;
+            pyramidCreation(array, length, largestIndex);
         }
     }
 }

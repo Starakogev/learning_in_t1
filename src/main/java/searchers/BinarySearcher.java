@@ -9,8 +9,10 @@ public class BinarySearcher implements Searcher {
         int operationsCount = 1;
 
         while (firstIndex <= lastIndex) {
+
             operationsCount++;
             searchPosition = (firstIndex + lastIndex) / 2;
+
             if (searchedElement < array[searchPosition]) {
                 lastIndex = searchPosition - 1;
             } else if (searchedElement > array[searchPosition]) {
@@ -18,9 +20,8 @@ public class BinarySearcher implements Searcher {
             } else if (searchedElement == array[searchPosition]) {
                 System.out.println(searchedElement + " is " + ++searchPosition + " element of array");
                 System.out.println("It was needed " + operationsCount + " operations");
+
                 return searchedElement;
-            } else {
-                break;
             }
         }
         System.out.println("Element not fount. It was needed " + operationsCount + " operations");

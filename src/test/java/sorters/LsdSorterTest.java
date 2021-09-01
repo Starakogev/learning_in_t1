@@ -6,21 +6,22 @@ import valueGenerators.ArrayValueGenerator;
 
 import java.util.Arrays;
 
-class BubbleSorterTest {
-    Sorter sorter = new BubbleSorter();
+import static org.junit.jupiter.api.Assertions.*;
 
-    int[] unsortedArray = ArrayValueGenerator.generateValues(10);
+class LsdSorterTest {
+    Sorter sorter = new LsdSorter();
+
+    int[] unsortedArray = {5, 23, 3, 44, 132, 18, 324, 1000};
 
     int[] sortedArray = ArrayValueGenerator.sortGeneratedValues(unsortedArray);
 
     @Test
     void sort() {
-
         System.out.println(Arrays.toString(unsortedArray));
 
         int[] sorted = sorter.sort(unsortedArray);
 
-        System.out.println(Arrays.toString(unsortedArray));
+        System.out.println(Arrays.toString(sorted));
 
         Assertions.assertArrayEquals(sortedArray, sorted);
     }

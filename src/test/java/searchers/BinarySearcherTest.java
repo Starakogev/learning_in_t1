@@ -15,7 +15,7 @@ class BinarySearcherTest {
     void search() {
         int[] unsortedArray = ArrayValueGenerator.generateValues(50);
 
-        unsortedArray[new Random().nextInt(unsortedArray.length-1)] = 13;
+//        unsortedArray[new Random().nextInt(unsortedArray.length-1)] = 13;
 
         int[] sortedArray = ArrayValueGenerator.sortGeneratedValues(unsortedArray);
 
