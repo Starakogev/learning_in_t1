@@ -119,6 +119,7 @@ public class HashMap<K, V> implements Map<K, V> {
     private void resizeIfHashMapArraySmall() {
         if (((double) size / arrayNode.length) > 0.75) {
             resizeHashMapArray();
+            System.out.println(arrayNode.length);
         }
     }
 
@@ -193,9 +194,9 @@ public class HashMap<K, V> implements Map<K, V> {
     }
 
 
-    public void putAll(Map m) {
-        for (Object currentEntry : m.entrySet()) {
-            Entry<K, V> castedCurrentEntry = (Entry) currentEntry;
+    public void putAll(Map map) {
+        for (Object currentEntry : map.entrySet()) {
+            Entry<K, V> castedCurrentEntry = (Entry<K, V>) currentEntry;
             this.put(castedCurrentEntry.getKey(), castedCurrentEntry.getValue());
         }
     }
@@ -207,7 +208,7 @@ public class HashMap<K, V> implements Map<K, V> {
     }
 
 
-    public Set keySet() {
+    public Set<K> keySet() {
         Set<K> keys = new HashSet<>();
         for (CustomNode<K, V> currentNode : getAllNodes()) {
             keys.add(currentNode.getKey());
@@ -216,7 +217,7 @@ public class HashMap<K, V> implements Map<K, V> {
     }
 
 
-    public Collection values() {
+    public Collection<V> values() {
         List<V> values = new ArrayList<>();
         for (CustomNode<K, V> currentNode : getAllNodes()) {
             values.add(currentNode.getValue());
