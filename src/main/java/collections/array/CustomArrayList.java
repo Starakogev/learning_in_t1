@@ -22,6 +22,12 @@ public class CustomArrayList<T> implements List<T> {
         }
     }
 
+    private void indexValidation(int index) {
+        if (index < 0 || index >= size) {
+            throw new ArrayIndexOutOfBoundsException("нету такого индекса");
+        }
+    }
+
     @Override
     public int size() {
         return size;
@@ -35,7 +41,7 @@ public class CustomArrayList<T> implements List<T> {
     @Override
     public boolean contains(Object o) {
         for (int i = 0; i < size; i++) {
-            if (Objects.equals(array[i], equals(o))) {
+            if (Objects.equals(array[i], o)) {
                 return true;
             }
         }
@@ -67,7 +73,7 @@ public class CustomArrayList<T> implements List<T> {
     @Override
     public boolean remove(Object o) {
         for (int i = 0; i < size; i++) {
-            if (Objects.equals(array[i], equals(o))) {
+            if (Objects.equals(array[i], o)) {
                 remove(i);
                 return true;
             }
@@ -93,15 +99,13 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public T get(int index) {
-        if (index < 0 || index >= size) {
-            return (T) new ArrayIndexOutOfBoundsException("нету такого индекса");
-        } else {
-            return array[index];
-        }
+        indexValidation(index);
+        return array[index];
     }
 
     @Override
     public Object set(int index, Object element) {
+        indexValidation(index);
         Object old = array[index];
         array[index] = (T) element;
         return old;
@@ -109,6 +113,7 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public void add(int index, Object element) {
+        indexValidation(index);
         ensureCapacity(size);
         System.arraycopy(array, index, array, index + 1, size - index);
         array[index] = (T) element;
@@ -117,16 +122,18 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public T remove(int index) {
+        indexValidation(index);
+        T old = array[index];
         int numMoved = size - index - 1;
         System.arraycopy(array, index + 1, array, index, numMoved);
         size--;
-        return array[index];
+        return old;
     }
 
     @Override
     public int indexOf(Object o) {
         for (int i = 0; i < size; i++) {
-            if (Objects.equals(array[i], equals(o))) {
+            if (Objects.equals(array[i], o)) {
                 return i;
             }
         }
@@ -137,7 +144,7 @@ public class CustomArrayList<T> implements List<T> {
     public int lastIndexOf(Object o) {
         int index = -1;
         for (int i = 0; i < size; i++) {
-            if (Objects.equals(array[i], equals(o))) {
+            if (Objects.equals(array[i], o)) {
                 index = i;
             }
         }
